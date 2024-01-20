@@ -1,5 +1,15 @@
+@use '../utilities/variables.scss';
+
 .what-we-do__section {
-    padding-bottom: 94px;
+    display: none;
+}
+
+@media screen and (min-width: 1200px) {
+
+    .what-we-do__section {
+        display: flex;
+        padding-top: 0;
+    }
 
     .what-we-do__title {
         font-weight: 700;
@@ -16,7 +26,7 @@
         .what-we-do__item {
             position: relative;
 
-             &:not(:last-child) {
+            &:not(:last-child) {
                 margin-right: 30px;
             }
         }
@@ -39,9 +49,10 @@
             display: flex;
         }
     }
+
 }
 
+@media screen and (min-width: 1200px) {
 
-
-
-
+    
+}

@@ -1,0 +1,106 @@
+@use '../utilities/variables.scss';
+
+
+.regular-customers__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * 30px);
+        margin-left: calc(-1 * 30px);
+    }
+
+    .regular-customers__item {
+        margin-top: 30px;
+        flex-basis: calc(100% / 2 - 30px);
+        margin-left: 30px;
+        margin-top: 30px;
+        width: 210px;
+    }
+
+    .regular-customers__title {
+        font-size: 28px;
+        line-height: calc(33/28);
+        text-align: center;
+        letter-spacing: 0.03em;
+        margin-bottom: 30px;
+        color: variables.$dark-text-color;
+    }
+
+    .regular-customers__logo {
+        fill: currentColor;
+    }
+
+    .regular-customers__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 92px;
+        border: 1px solid;
+        border-color: #AFB1B8;
+        border-radius: 4px;
+        color: #AFB1B8;
+        transition: border-color variables.$transition-time variables.$transition-time-function,
+            color variables.$transition-time variables.$transition-time-function;
+
+        &:hover,
+        &:focus {
+            border-color: variables.$accent-color;
+            color: variables.$accent-color;
+        }
+    }
+
+@media screen and (min-width: 480px) {
+    .regular-customers__container {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+}
+
+
+ @media screen and (min-width: 768px) {
+    .regular-customers__container {
+        max-width: 768px;
+        margin: 0 auto;    
+    }
+
+    .regular-customers__item {
+        flex-basis: calc(100% / 3 - 30px);
+    }
+ }
+
+ @media screen and (min-width: 1200px) {
+        .regular-customers__container {
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .regular-customers__title {
+            font-size: 36px;
+            line-height: calc(42/36);
+        }
+
+        .regular-customers__list {
+            flex-wrap: nowrap;
+            width: 1170px;
+            margin-left: 0;
+            margin-top: 0;
+        }
+
+        .regular-customers__item {
+            margin-left: 0;
+            margin-top: 0;
+            margin-right: 0;
+            width: 170px;
+
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
+
+        .regular-customers__img {
+            width: 170px;
+        }
+    }
+ 
+

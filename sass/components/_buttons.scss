@@ -1,62 +1,126 @@
+@use '../utilities/variables';
+
 // HERO BUTTON
 .hero__button {
     font-weight: 700;
+    font-size: 16px;
     line-height: calc(30/16);
     display: block;
     align-items: center;
     text-align: center;
-    @include button-accent-styles;
+    @extend %button-accent-styles;
     margin: auto;
     padding: 10px 20px;
     cursor: pointer;
     border: none;
-    transition: background-color $transition-time $transition-time-function,
-        opacity $transition-time $transition-time-function;
+    transition: background-color variables.$transition-time variables.$transition-time-function,
+        opacity variables.$transition-time variables.$transition-time-function;
 
         &:hover,
         &:focus {
-            background-color: $button-hover-color;
+            background-color: variables.$button-hover-color;
             opacity: 1;
         }
 }
 
 // MODAL BUTTONS
 .modal__close-button {
-    float: right;
-    background-color: $background-white-color;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: variables.$background-white-color;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     padding: 5px 7px 4px;
     cursor: pointer;
-    transition: fill $transition-time $transition-time-function,
-        border-color $transition-time $transition-time-function;
+    transition: fill variables.$transition-time variables.$transition-time-function,
+        border-color variables.$transition-time variables.$transition-time-function;
 
         &:focus,
         &:hover {
-            fill: $accent-color;
-            border-color: $accent-color;
+            fill: variables.$accent-color;
+            border-color: variables.$accent-color;
         }
 }
 
 .modal__form-button {
-    @include button-accent-styles;
+    @extend %button-accent-styles;
     display: block;
     margin: 0 auto;
+    margin-bottom: 40px;
     padding: 10px 80px;
-    transition: background-color $transition-time $transition-time-function,
-        opacity $transition-time $transition-time-function;
+    transition: background-color variables.$transition-time variables.$transition-time-function,
+        opacity variables.$transition-time variables.$transition-time-function;
 
         &:hover,
         &:focus {
-            background-color: $button-hover-color;
+            background-color: variables.$button-hover-color;
             opacity: 1;
         }
 }
 
+ // // FOOTER FORM BUTTON
+ .footer__form-button {
+     font-weight: 700;
+     font-size: 16px;
+     line-height: calc(30/16);
+     text-align: center;
+     background: variables.$accent-color;
+     border-color: variables.$accent-color;
+     color: variables.$white-text-color;
+     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+     border-radius: 4px;
+     letter-spacing: 0.06em;
+     display: flex;
+     align-items: center;
+     padding: 10px 48px;
+     transition: background-color variables.$transition-time variables.$transition-time-function,
+         opacity variables.$transition-time variables.$transition-time-function;
+     cursor: pointer;
+
+     &:hover,
+     &:focus {
+         background-color: variables.$button-hover-color;
+         opacity: 1;
+     }
+}
+ 
+@media screen and (min-width: 1200px) {
+    .footer__form-button {
+        padding: 10px 40px;
+    }
+}
+ 
+
 // PORTFOLIO FILTER BUTTONS
+.portfolio-button__container {
+    min-width: 320px;
+    margin: 0;
+}
+
+@media screen and (min-width: 480px) {
+   .portfolio-button__container {
+    max-width: 480px;
+    margin: 0 auto;
+   } 
+}
+
+@media screen and (min-width: 768px) {
+    .portfolio-button__container {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .portfolio-button__list {
+        justify-content: center;
+    }
+}
+
 .portfolio-button__list {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 50px;
 
         .portfolio-button__item:not(:last-child) {
@@ -68,51 +132,33 @@
             font-size: 16px;
             line-height: calc(26/16);
             text-align: center;
-            color: $dark-text-color;
-            background-color: $background-medium-color;
+            color: variables.$dark-text-color;
+            background-color: variables.$background-medium-color;
             border-radius: 4px;
             border: none;
             display: block;
             padding: 6px 20px;
             cursor: pointer;
-            transition: color $transition-time $transition-time-function,
-                backgound-color $transition-time $transition-time-function,
-                box-shadow $transition-time $transition-time-function;
+            transition: color variables.$transition-time variables.$transition-time-function,
+                backgound-color variables.$transition-time variables.$transition-time-function,
+                box-shadow variables.$transition-time variables.$transition-time-function;
 
                 &:hover,
                 &:focus {
-                    color: $white-text-color;
-                    background-color: $accent-color;
-                    @include portfolio-filter-box-shadow;
+                    color: variables.$white-text-color;
+                    background-color: variables.$accent-color;
+                    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
                 }
-        }
 
-        .current-filter {
-            background-color: $accent-color;
-            @include portfolio-filter-box-shadow;
-            border-radius: 4px;
-            color: $white-text-color;
-        }
+                &:nth-last-child(-n + 3) {
+                    margin-top: 15px;
+                }
 }
 
-// FOOTER FORM BUTTON
-.footer__form-button {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: calc(30/16);
-    text-align: center;
-   @include button-accent-styles;
-    display: flex;
-    align-items: center;
-    padding: 10px 48px;
-    transition: background-color $transition-time $transition-time-function,
-        opacity $transition-time $transition-time-function;
-    cursor: pointer;
-
-        &:hover,
-        &:focus {
-            background-color: $button-hover-color;
-            opacity: 1;
+        .current-filter {
+            background-color: variables.$accent-color;
+            box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+            color: variables.$white-text-color;
         }
-
 }

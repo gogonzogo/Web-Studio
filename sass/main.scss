@@ -1,25 +1,22 @@
-@import './utilities/variables.scss';
+@use './utilities/variables.scss';
 
+@use './base/section';
+@use './base/containers';
+@use './base/global';
 
+@use './components/buttons';
+@use './components/forms';
+@use './components/images';
+@use './components/logo';
+@use './components/modal';
+@use './components/mobile-menu';
 
-
-
-
-@import './base/section';
-@import './base/containers';
-@import './base/global';
-@import './layouts/benefits';
-@import './layouts/hero';
-@import './layouts/our-team';
-@import './layouts/portfolio-products';
-@import './layouts/regular-customers';
-@import './layouts/what-we-do';
-@import './components/buttons';
-@import './components/footer';
-@import './components/forms';
-@import './components/images';
-@import './components/logo';
-@import './components/modal';
-@import './components/navigation';
-@import './components/header';
-@import './components/media';
+@use './layouts/portfolio-products';
+@use './layouts/h-footer';
+@use './layouts/d-benefits';
+@use './layouts/c-hero';
+@use './layouts/f-our-team';
+@use './layouts/g-regular-customers';
+@use './layouts/e-what-we-do';
+@use './layouts/b-navigation';
+@use './layouts/a-header';
